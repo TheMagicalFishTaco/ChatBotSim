@@ -46,6 +46,8 @@ public class EchoAgent : AgentApplication
         }
     }
 
+
+    //Main function. Proceeds if the provided input returns true.
     private async Task InputResponse(ITurnContext turnContext, ITurnState turnState, CancellationToken cancellationToken)
     {
         int currState = turnState.Conversation.GetValue<int>("currState");
@@ -71,12 +73,29 @@ public class EchoAgent : AgentApplication
              
         }
         else
-        {
-            await turnContext.SendActivityAsync($"Error: Input your name again", cancellationToken : cancellationToken);  
+        {  
+            string Name = turnState.Conversation.GetValue<string>("InputName");
+            string Num = turnState.Conversation.GetValue<string>("InputMobileNum");
+            string Address = turnState.Conversation.GetValue<string>("InputAddress");
+            if (String.IsNullOrWhiteSpace(Name))
+            {
+                await turnContext.SendActivityAsync($"Error: Input your name again", cancellationToken : cancellationToken);  
+            }
+            else if (String.IsNullOrWhiteSpace(Num))
+            {
+                await turnContext.SendActivityAsync($"Error: Input your number again", cancellationToken : cancellationToken);  
+            }
+            else if (String.IsNullOrWhiteSpace(Address))
+            {
+                await turnContext.SendActivityAsync($"Error: Input your address again", cancellationToken : cancellationToken);  
+            }
+            
         }
 
     }
 
+
+    //Handles checking the inputs through regex, uses the current state to determine which input needs to be validated.
     public bool CheckInput(string Input, ITurnState turnState)
     {
         int currState = turnState.Conversation.GetValue<int>("currState");

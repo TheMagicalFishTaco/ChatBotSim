@@ -1,25 +1,33 @@
 debug Telemetry: agents-playground-cli/cliStart {"cleanProperties":{"isExec":"false","argv":"<REDACTED: user-file-path>,<REDACTED: user-file-path>"}}
 
 warn Port 56150 is already in use. Finding an available port...
-log Listening on 58140
-log Microsoft 365 Agents Playground is being launched for you to debug the app: http://localhost:58140
+log Listening on 62987
+log Microsoft 365 Agents Playground is being launched for you to debug the app: http://localhost:62987
 debug started web socket client
 debug started web socket client
 log Waiting for connection of endpoint: http://127.0.0.1:3978/api/messages
 log waiting for 1 resources: http://127.0.0.1:3978/api/messages
-log wait-on(94820) complete
+log wait-on(110708) complete
 log Events recording disabled.
 debug Telemetry: agents-playground-server/eventsRecording {"cleanProperties":{"enabled":"false"}}
 
 debug Telemetry: agents-playground-server/getConfig {"cleanProperties":{"internalConfig":"{\"locale\":\"en-PH\",\"localTimezone\":\"Asia/Manila\",\"channelId\":\"msteams\",\"debugConfig\":{\"eventsRecordingEnabled\":false}}"}}
 
-debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"conversationUpdate","conversationId":"b402ff3a-06d1-4172-99cc-4932eba6f1fc","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"conversationUpdate","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
-debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"installationUpdate","conversationId":"b402ff3a-06d1-4172-99cc-4932eba6f1fc","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"installationUpdate","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
-debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"b402ff3a-06d1-4172-99cc-4932eba6f1fc","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
-debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"b402ff3a-06d1-4172-99cc-4932eba6f1fc","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
-debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"b402ff3a-06d1-4172-99cc-4932eba6f1fc","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
+
+debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
