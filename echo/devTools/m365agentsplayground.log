@@ -31,3 +31,11 @@ debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"acti
 
 debug Telemetry: agents-playground-server/sendActivity {"cleanProperties":{"activityType":"message","conversationId":"0cd26e6d-0b07-4c82-8533-c93699c523fb","headers":"{\"x-ms-agents-playground\":\"true\"}"}}
 
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
+debug stopping web socket client
