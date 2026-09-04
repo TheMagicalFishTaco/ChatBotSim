@@ -29,10 +29,7 @@ app.Run();
 
 public class EchoAgent : AgentApplication
 {
-    private string InputName;
-    private string InputMobileNum;
-    private string InputAddress;
-    private int currState = 0;
+
 
     public EchoAgent(AgentApplicationOptions options) : base(options)
     {
@@ -48,12 +45,30 @@ public class EchoAgent : AgentApplication
             await turnContext.SendActivityAsync(MessageFactory.Text("What's your Name?"), cancellationToken);
         }
     }
+
     private async Task InputResponse(ITurnContext turnContext, ITurnState turnState, CancellationToken cancellationToken)
     {
-        var IsValidInput = CheckInput(turnContext.Activity.Text);
+        int currState = turnState.Conversation.GetValue<int>("currState");
+        var IsValidInput = CheckInput(turnContext.Activity.Text, turnState);
         if (IsValidInput)
         {
-            await turnContext.SendActivityAsync($"Name is: {InputName}", cancellationToken : cancellationToken);            
+            switch(currState)
+            {
+                case 0:
+                    await turnContext.SendActivityAsync($"What's your Mobile Number?", cancellationToken : cancellationToken);   
+                    break;
+                case 1:
+                    await turnContext.SendActivityAsync($"What's your Address?", cancellationToken : cancellationToken); 
+                    break;
+                case 2:
+                    await turnContext.SendActivityAsync($"Your information is:", cancellationToken : cancellationToken);      
+                    await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputName"), cancellationToken : cancellationToken);
+                    await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputMobileNum"), cancellationToken : cancellationToken);
+                    await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputAddress"), cancellationToken : cancellationToken);        
+                    break;     
+            }
+            turnState.Conversation.SetValue("currState", currState + 1);
+             
         }
         else
         {
@@ -62,27 +77,39 @@ public class EchoAgent : AgentApplication
 
     }
 
-    public bool CheckInput(string Input)
+    public bool CheckInput(string Input, ITurnState turnState)
     {
+        int currState = turnState.Conversation.GetValue<int>("currState");
+        Console.WriteLine($"CurrState = {currState}");
         switch(currState)
         {
             case 0:
             //Validate InputName
                 if (Regex.IsMatch(Input, "^[A-Z]"))
                 {
-                    InputName = Input;
-                    currState += 1;
+                    turnState.Conversation.SetValue("InputName", Input);
                     return true;
                 }
                 return false;
                 
             case 1:
                 //Validate MobileNum
+                if (Regex.IsMatch(Input, @"^09\d{9}$"))
+                {
+                    turnState.Conversation.SetValue("InputMobileNum", Input);
+                    return true;
+                }
+                return false;
             case 2:
-                //Validate Address
+                if (Regex.IsMatch(Input, "^[A-Z]"))
+                {
+                    turnState.Conversation.SetValue("InputAddress", Input);
+                    return true;
+                }
+                return false;
             default:
                 //Finish
-                return false;
+                return true;
         }
     }
 
