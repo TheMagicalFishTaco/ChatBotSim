@@ -62,3 +62,10 @@ E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\obj\Debug\net10.
 E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\obj\Debug\net10.0\echo.pdb
 E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\obj\Debug\net10.0\echo.genruntimeconfig.cache
 E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\obj\Debug\net10.0\ref\echo.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\cards\summaryCard.json
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\AdaptiveCards.Templating.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\Antlr4.Runtime.Standard.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\Json.More.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\JsonPath.Net.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\Microsoft.Bot.AdaptiveExpressions.Core.dll
+E:\Work Files\EastWest Files\Chatbot Simulation\ChatBotSim\echo\bin\Debug\net10.0\Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll

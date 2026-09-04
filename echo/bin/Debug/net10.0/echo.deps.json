@@ -8,10 +8,31 @@
     ".NETCoreApp,Version=v10.0": {
       "echo/1.0.0": {
         "dependencies": {
+          "AdaptiveCards.Templating": "2.0.6",
           "Microsoft.Agents.Hosting.AspNetCore": "1.8.77"
         },
         "runtime": {
           "echo.dll": {}
+        }
+      },
+      "AdaptiveCards.Templating/2.0.6": {
+        "dependencies": {
+          "Antlr4.Runtime.Standard": "4.13.1",
+          "Microsoft.Bot.AdaptiveExpressions.Core": "4.23.1"
+        },
+        "runtime": {
+          "lib/net8.0/AdaptiveCards.Templating.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Antlr4.Runtime.Standard/4.13.1": {
+        "runtime": {
+          "lib/netstandard2.0/Antlr4.Runtime.Standard.dll": {
+            "assemblyVersion": "4.13.1.0",
+            "fileVersion": "4.13.1.0"
+          }
         }
       },
       "Azure.Core/1.55.0": {
@@ -61,6 +82,25 @@
           "lib/net10.0/Azure.Storage.Common.dll": {
             "assemblyVersion": "12.28.0.0",
             "fileVersion": "12.2800.26.30406"
+          }
+        }
+      },
+      "Json.More.Net/2.0.2": {
+        "runtime": {
+          "lib/net8.0/Json.More.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.2.0"
+          }
+        }
+      },
+      "JsonPath.Net/1.1.4": {
+        "dependencies": {
+          "Json.More.Net": "2.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/JsonPath.Net.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.1.4.0"
           }
         }
       },
@@ -191,6 +231,19 @@
           }
         }
       },
+      "Microsoft.Bot.AdaptiveExpressions.Core/4.23.1": {
+        "dependencies": {
+          "Antlr4.Runtime.Standard": "4.13.1",
+          "JsonPath.Net": "1.1.4",
+          "Microsoft.Recognizers.Text.DataTypes.TimexExpression": "1.3.2"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Bot.AdaptiveExpressions.Core.dll": {
+            "assemblyVersion": "4.23.1.0",
+            "fileVersion": "4.23.1.0"
+          }
+        }
+      },
       "Microsoft.Identity.Client/4.83.1": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "8.22.0"
@@ -293,6 +346,14 @@
           }
         }
       },
+      "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.3.2": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "System.ClientModel/1.11.0": {
         "dependencies": {
           "System.Memory.Data": "10.0.10"
@@ -378,6 +439,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AdaptiveCards.Templating/2.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CIGaU0VsUf+VcXcWJmHvkK07qeu1sYbzeRPWXZE1tOLuBY54T4v+y86dcbKKsZVeBRmrQ7/N2Z1d08bFWoPNMA==",
+      "path": "adaptivecards.templating/2.0.6",
+      "hashPath": "adaptivecards.templating.2.0.6.nupkg.sha512"
+    },
+    "Antlr4.Runtime.Standard/4.13.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Da5+i4kFHUseJRZGcBG5fmZGpA/Ns180ibrQMxgZzjpQOnENVvSL5gi5HZ8Ncz8/AR2WsKbOg2lMBzjz0HUQcA==",
+      "path": "antlr4.runtime.standard/4.13.1",
+      "hashPath": "antlr4.runtime.standard.4.13.1.nupkg.sha512"
+    },
     "Azure.Core/1.55.0": {
       "type": "package",
       "serviceable": true,
@@ -405,6 +480,20 @@
       "sha512": "sha512-5l8YhNrks38zKLGFW2BBFLwieyamH/xauABSASsdpZv79G0f+n2n22IjkRmUqCmALSupkwRHh2LOhbW3yj5Qgw==",
       "path": "azure.storage.common/12.28.0",
       "hashPath": "azure.storage.common.12.28.0.nupkg.sha512"
+    },
+    "Json.More.Net/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-izscdjjk8EAHDBCjyz7V7n77SzkrSjh/hUGV6cyR6PlVdjYDh5ohc8yqvwSqJ9+6Uof8W6B24dIHlDKD+I1F8A==",
+      "path": "json.more.net/2.0.2",
+      "hashPath": "json.more.net.2.0.2.nupkg.sha512"
+    },
+    "JsonPath.Net/1.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RAVhHdPEJPUoKPSSHBh82Q8Qrwl3mr1OlRj0I/IFj42DSoS8b9VUOPCCr+O6V/2gmPDbuGnf2mdic9Cp8AqfBg==",
+      "path": "jsonpath.net/1.1.4",
+      "hashPath": "jsonpath.net.1.1.4.nupkg.sha512"
     },
     "Microsoft.Agents.Authentication/1.8.77": {
       "type": "package",
@@ -483,6 +572,13 @@
       "path": "microsoft.bcl.memory/10.0.10",
       "hashPath": "microsoft.bcl.memory.10.0.10.nupkg.sha512"
     },
+    "Microsoft.Bot.AdaptiveExpressions.Core/4.23.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DN4MGgj/8skQW7WKOTNsOb8vY7ENxaiVgbsjFB514EwCB9lAhw8csRKYtrcPa5jv/VGno9Czu7gEWPb+a5PIsQ==",
+      "path": "microsoft.bot.adaptiveexpressions.core/4.23.1",
+      "hashPath": "microsoft.bot.adaptiveexpressions.core.4.23.1.nupkg.sha512"
+    },
     "Microsoft.Identity.Client/4.83.1": {
       "type": "package",
       "serviceable": true,
@@ -545,6 +641,13 @@
       "sha512": "sha512-8lMJuI0r46dVa648IUAUVXRc6ioGdvGB8zD+S+9DWHrXYdK1SWae9TsMWYwWeRJEZBErwZgVlPrzxDk71VYiZA==",
       "path": "microsoft.identitymodel.validators/8.22.0",
       "hashPath": "microsoft.identitymodel.validators.8.22.0.nupkg.sha512"
+    },
+    "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bTIQbNtjrLwvXuBRc2FT3N4/TIT19xA0vmVw8imKsRCX9zuv2yxNOOqIWe7TH3uULftCrZWs55AtD3hB4Pvqrw==",
+      "path": "microsoft.recognizers.text.datatypes.timexexpression/1.3.2",
+      "hashPath": "microsoft.recognizers.text.datatypes.timexexpression.1.3.2.nupkg.sha512"
     },
     "System.ClientModel/1.11.0": {
       "type": "package",

@@ -5,9 +5,8 @@ using Microsoft.Agents.Builder.State;
 using Microsoft.Agents.Core.Models;
 using Microsoft.Agents.Hosting.AspNetCore;
 using Microsoft.Agents.Storage;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Net.Http.Headers;
-using Microsoft.VisualBasic;
+using System.Text.Json;
+using AdaptiveCards.Templating;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,9 +26,19 @@ app.MapPost("/api/messages",async(HttpRequest request, HttpResponse response, IA
 app.Run();
 
 
+
+
 public class EchoAgent : AgentApplication
 {
-
+    private Attachment CreateAdaptiveCardAttachment(string filePath)
+    {
+        var cardJson = File.ReadAllText(filePath);
+        return new Attachment
+        {
+            ContentType = "application/vnd.microsoft.card.adaptive",
+            Content = JsonSerializer.Deserialize<JsonElement>(cardJson)
+        };
+    }
 
     public EchoAgent(AgentApplicationOptions options) : base(options)
     {
@@ -63,11 +72,34 @@ public class EchoAgent : AgentApplication
                     await turnContext.SendActivityAsync($"What's your Address?", cancellationToken : cancellationToken); 
                     break;
                 case 2:
+                    //old approach of showing all the info in plaintext
                     await turnContext.SendActivityAsync($"Your information is:", cancellationToken : cancellationToken);      
                     await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputName"), cancellationToken : cancellationToken);
                     await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputMobileNum"), cancellationToken : cancellationToken);
                     await turnContext.SendActivityAsync(turnState.Conversation.GetValue<string>("InputAddress"), cancellationToken : cancellationToken);        
-                    break;     
+   
+                    //End state using cards
+                    var templateJson = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Cards", "summaryCard.json"));
+                    var template = new AdaptiveCardTemplate(templateJson);
+
+                    var data = new
+                    {
+                        name = turnState.Conversation.GetValue<string>("InputName"),
+                        mobileNum = turnState.Conversation.GetValue<string>("InputMobileNum"),
+                        address = turnState.Conversation.GetValue<string>("InputAddress")
+                    };
+
+                    string expandedCardJson = template.Expand(data);
+
+                    var attachment = new Attachment
+                    {
+                        ContentType = "application/vnd.microsoft.card.adaptive",
+                        Content = JsonSerializer.Deserialize<JsonElement>(expandedCardJson)
+                    };
+
+                    await turnContext.SendActivityAsync(MessageFactory.Attachment(attachment), cancellationToken : cancellationToken);
+                    break;
+
             }
             turnState.Conversation.SetValue("currState", currState + 1);
              

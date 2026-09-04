@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)system.clientmodel\1.11.0\buildTransitive\net10.0\System.ClientModel.targets" Condition="Exists('$(NuGetPackageRoot)system.clientmodel\1.11.0\buildTransitive\net10.0\System.ClientModel.targets')" />
+    <Import Project="$(NuGetPackageRoot)polysharp\1.14.1\buildTransitive\PolySharp.targets" Condition="Exists('$(NuGetPackageRoot)polysharp\1.14.1\buildTransitive\PolySharp.targets')" />
     <Import Project="$(NuGetPackageRoot)azure.core\1.55.0\buildTransitive\net10.0\Azure.Core.targets" Condition="Exists('$(NuGetPackageRoot)azure.core\1.55.0\buildTransitive\net10.0\Azure.Core.targets')" />
   </ImportGroup>
 </Project>
